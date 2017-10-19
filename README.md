@@ -2,7 +2,7 @@
 
 # Material Design - The development documentation
 
-[https://materialdoc.com](https://materialdoc.com)
+[https://materialdoc.cn](https://materialdoc.cn)
 
 ### What is this site about?
 
@@ -35,8 +35,14 @@ Later we will prepare tutorials of how to make widgets which are not available i
 * [Paresh Mayani](http://www.technotalkative.com/)
 * [Gonzalo Toledano](http://gnzlt.com)
 
+### Who are the translator?
+
+* [脉脉不得语](http://www.inferjay.com)
+* [Ailurus](http://www.easydone.cn)
+* [Goodev](http://blog.chengyunfeng.com/)
+
 ### Want to help?
 
 * Share this website to social media
-* Star our repository [github.com/materialdoc](https://github.com/materialdoc/materialdoc-web)
+* Star our repository [github.com/materialdoccn](https://github.com/materialdoccn/materialdoc-web)
 * Write or edit article and send pull request to `master` branch. *(Make sure you have read [how to contribute](docs/how-to-contribute.md) section)*
