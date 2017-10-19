@@ -2,20 +2,20 @@
 
 ![](../images/cards.png)
 
-!!! quote "From Google material design [documentation](https://material.io/guidelines/components/cards.html)"
-    A card is a piece of paper with unique related data that serves as an entry point to more detailed information. For example, a card could contain a photo, text, and a link about a single subject.
+!!! quote "摘自 Google material design [文档](https://www.google.com/design/spec/components/cards.html#)"
+    card 可以用来展示一些独特相关的数据，用来作为更加详细的信息的入口。例如，卡片可能包含有照片，文字，关于一个主题的链接等。
 
-### How to add?
+## 如何添加？
 
-I. In your `build.gradle` include the `cardview` library:
+I. 在 `build.gradle` 里引入 `cardview` 库。
 
-```
+```groovy
 dependencies {
   compile 'com.android.support:cardview-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Declare your card inside any `layout.xml` file and insert views inside it.
+II. 在 `layout.xml` 里声明 card ，并用它包裹其他的 view 。
 
 ```xml
 <android.support.v7.widget.CardView
@@ -30,14 +30,14 @@ II. Declare your card inside any `layout.xml` file and insert views inside it.
 </android.support.v7.widget.CardView>
 ```
 
-!!! note
-    Use `android:clipToPadding="false"` on the card parent allows you to prevent possible clips in the outer shadows of the card.
+!!! note "注意"
+    给 CardView 的父布局增加属性 `android:clipToPadding="false"` ，可以保证 CardView 的阴影不被裁剪掉。
 
-### How to style?
+## 如何设置样式？
 
 ![](../images/cards-styled.png)
 
-I. Declare your custom style in your `styles.xml` file.
+I. 在 `styles.xml` 文件里声明你自定义的样式。
 
 ```xml
 <style name="MyCardViewStyle" parent="Theme.AppCompat.Light">
@@ -51,7 +51,7 @@ I. Declare your custom style in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your card via `style` attribute.
+II. 设置你的 CardView 的 `style` 属性值为自定义的样式。
 
 ```xml
 <android.support.v7.widget.CardView
@@ -59,3 +59,5 @@ II. Apply this style to your card via `style` attribute.
     android:layout_height="wrap_content"
     style="@style/MyCardViewStyle">
 ```
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文链接 https://materialdoc.com/components/cards/

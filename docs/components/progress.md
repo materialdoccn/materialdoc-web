@@ -4,22 +4,20 @@
 
 ![](../images/circular-progress-1.gif)
 
-!!! quote "From google material design [documentation](https://material.io/guidelines/components/progress-activity.html#)."
-    Minimize visual changes that occur while your app loads content by representing each operation with a single activity indicator.
+!!! quote "摘自 google material design [文档](http://www.google.com/design/spec/components/progress-activity.html#)"
+     Minimize visual changes that occur while your app loads content by representing each operation with a single activity indicator. 例如，一个刷新操作应该显示一个 refresh bar 或者 activity circle 的任何一个，但是不能同时显示。
 
-    For example, a refresh operation should display either a refresh bar or an activity circle, but not both.
+### 如何添加?
 
-### How to add?
+I. 在你的 `build.grade` 文件末尾添加 `appcompat` 库。
 
-I. In your `build.gradle` add latest `appcompat` library.
-
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Make your activity extend. `android.support.v7.app.AppCompatActivity`.
+II. 创建你的 activity 并继承自 android.support.v7.app.AppCompatActivity。
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-III. Declare your `ProgressBar` inside any `layout.xml` file.
+III. 在 `layout.xml` 内的任意位置声明你的 `ProgressBar`。
 
 ```xml
 <ProgressBar
@@ -36,11 +34,11 @@ III. Declare your `ProgressBar` inside any `layout.xml` file.
     android:layout_height="wrap_content"/>
 ```
 
-### How to style?
+### 如何设置样式?
 
 ![](../images/circular-progress-2.gif)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在你的 `styles.xml` 内定义自定义样式。
 
 ```xml
 <style name="CircularProgress" parent="Theme.AppCompat.Light">
@@ -48,7 +46,7 @@ I. Declare custom style in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your `ProgressBar` via `android:theme` attribute.
+II. 通过 `android:theme` 属性应用这个样式到你的 `ProgressBar` 。
 
 ```xml
 <ProgressBar
@@ -62,20 +60,20 @@ II. Apply this style to your `ProgressBar` via `android:theme` attribute.
 
 ![](../images/linear-progress-1.gif)
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/progress-activity.html#)."
-    A linear progress indicator should always fill from 0% to 100% and never decrease in value. It should be represented by bars on the edge of a header or sheet that appear and disappear.
+!!! quote "摘自 google material design [文档](http://www.google.com/design/spec/components/progress-activity.html#)"
+    一个 linear progress 指示器应该总是从 0% 填充到 100%，绝对不能反着填充。 It should be represented by bars on the edge of a header or sheet that appear and disappear.
 
-### How to add?
+### 如何添加?
 
-I. In your `build.gradle` add latest `appcompat` library.
+I. 在你的 `build.grade` 文件末尾添加 `appcompat` 库。
 
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Make your activity extend`android.support.v7.app.AppCompatActivity`.
+II. 创建你的 activity 并继承自 `android.support.v7.app.AppCompatActivity`。
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-III. Declare your `ProgressBar` inside any `layout.xml` file.
+III. 在 `layout.xml` 内的任意位置声明你的 `ProgressBar`。
 
 ```xml
 <ProgressBar
@@ -92,9 +90,9 @@ III. Declare your `ProgressBar` inside any `layout.xml` file.
     android:layout_height="wrap_content"/>
 ```
 
-#### Indeterminate
+#### 不确定的
 
-To create indeterminate `ProgressBar` set `android:indeterminate` attribute to `true`.
+创建不确定的 `ProgressBar` 设置 `android:indeterminate` 属性的值为 true。
 
 ```xml
 <ProgressBar
@@ -104,9 +102,9 @@ To create indeterminate `ProgressBar` set `android:indeterminate` attribute to `
     android:indeterminate="true"/>
 ```
 
-#### Determinate
+#### 确定的
 
-I. To create determinate `ProgressBar` set `android:indeterminate` attribute to `false`.
+I. 创建确定的 `ProgressBar` 设置 `android:indeterminate` 属性的值为 false。
 
 ```xml
 <ProgressBar
@@ -119,21 +117,20 @@ I. To create determinate `ProgressBar` set `android:indeterminate` attribute to 
     android:progress="20"/>
 ```
 
-To specify max progress count use `android:max` attribute. By default it equals to `100`.
+使用 `android:max` 属性去指定最大进度数。它默认等于100。
 
-To set progress default position use `android:progress` attribute.
+使用 `android:progress` 属性设置进度默认位置。
 
-II. To update progress position use `setProgress(int progress)` method from UI thread.
+II. 从 UI 线程使用 `setProgress(int progress) ` 方法去更新进度位置。
 
 ```java
 ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
 progressBar.setProgress(50);
-
 ```
 
-#### Buffered
+#### 缓冲的
 
-I. To create buffered `ProgressBar` set `android:indeterminate` attribute to `false`.
+I. 创建缓冲的 `ProgressBar` 设置 `android:indeterminate` 属性的值为 false。
 
 ```xml
 <ProgressBar
@@ -146,9 +143,10 @@ I. To create buffered `ProgressBar` set `android:indeterminate` attribute to `fa
     android:progress="10"
     android:secondaryProgress="50"/>
 ```
-To set default buffer value use `android:secondaryProgress` attribute.
 
-II. To update buffer position use `setSecondaryProgress(int progress)` method.
+使用 `android:secondaryProgress` 属性设置默认的缓冲值。
+
+II. 使用 `setSecondaryProgress(int progress) ` 方法去更新缓冲进度位置。
 
 ```java
 ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -160,9 +158,9 @@ progressBar.setProgress(20);
 progressBar.setSecondaryProgress(50);
 ```
 
-#### Indeterminate and Determinate
+#### 不确定的和确定的
 
-To create indeterminate `ProgressBar` set `android:indeterminate` attribute to `true`.
+创建不确定的 `ProgressBar` 设置 `android:indeterminate` 属性的值为 true。
 
 ```xml
 <ProgressBar
@@ -173,19 +171,18 @@ To create indeterminate `ProgressBar` set `android:indeterminate` attribute to `
     android:indeterminate="true"/>
 ```
 
-Whenever you need to switch from indeterminate to determinate progress use `setIndeterminate(boolean indeterminate)` method .
+每当你需要从不确定的切换到确定的进度，可以使用 `setIndeterminate(boolean indeterminate)` 方法。
 
 ```java
 ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
 progressBar.setIndeterminate(false);
-
 ```
 
-### How to style?
+## 如何设置样式?
 
-![](../images/linear-progress-2.gif)
+![](../images/linear-progress-1.gif)
 
-I. Declare custom style in your `values-v21/styles.xml` file.
+I. 在你的 `values-v21/styles.xml` 内定义自定义样式。
 
 ```xml
 <style name="LinearProgress" parent="Theme.AppCompat.Light">
@@ -194,7 +191,7 @@ I. Declare custom style in your `values-v21/styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your `ProgressBar` via `android:theme` attribute.
+II. 通过 `android:theme` 属性应用这个样式到你的 `ProgressBar`。
 
 ```xml
 <ProgressBar
@@ -204,5 +201,10 @@ II. Apply this style to your `ProgressBar` via `android:theme` attribute.
     android:layout_height="wrap_content"/>
 ```
 
-!!! note
-    `android:progressBackgroundTint` attribute is working only with determinate `ProgressBar`
+!!! note "备注"
+    `android:progressBackgroundTint` 属性只工作在确定的 `ProgressBar`。
+
+
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文作者：Yakiv Mospan
+    原文链接：[Progress](https://materialdoc.com/components/progress)

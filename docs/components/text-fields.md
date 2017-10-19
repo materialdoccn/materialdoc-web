@@ -2,39 +2,39 @@
 
 ![](../images/text-field-intro-v1.png)
 
-!!! quote "From google material design [documentation](https://material.io/guidelines/components/text-fields.html)."
-    Text fields allow the user to input text, select text (cut, copy, paste), and lookup data via auto-completion.
+!!! quote "摘自 google material design [文档](https://www.google.com/design/spec/components/text-fields.html)"
+    Text fields 允许用户输入文本，选择文本（剪切，复制，粘贴），通过自动补全检索查询数据。
 
-### How to add?
+### 如何添加?
+I. 在你的 `build.grade` 文件末尾添加 `appcompat` 库。
 
-I. In your `build.gradle` add latest `appcompat` library.
-
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+II. 让你的 activity 继承自 `android.support.v7.app.AppCompatActivity`。
 
-```java
+```Java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `EditText` inside any `layout.xml` file.
+
+III. 在任意的 `layout.xml` 文件内声明你的 `EditText` 。
 
 ```xml
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Hint text"/>
+    android:hint="Hint text" />
 ```
 
-### How to style?
+### 如何设置样式?
 
 ![](../images/text-field-style-v1.png)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在你的 `styles.xml` 文件内声明自定义样式。
 
 ```xml
 <style name="MyEditText" parent="Theme.AppCompat.Light">
@@ -42,55 +42,54 @@ I. Declare custom style in your `styles.xml` file.
     <item name="colorControlActivated">@color/pink</item>
 </style>
 ```
-
-II. Apply this style to your `EditText` via `android:theme` attribute.
+II. 在你的 `EditText` 声明里设置 `android:theme` 的属性值为你自定义的样式。
 
 ```xml
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:hint="Hint text"
-    android:theme="@style/MyEditText"/>
+    android:theme="@style/MyEditText" />
 ```
 
-## Single-line text field
+### Single-line text field
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/text-fields.html)."
-    Single-line fields automatically scroll their content to the left as the text input cursor reaches the right edge of the input field.
+!!! quote "摘自 google material design [文档](https://www.google.com/design/spec/components/text-fields.html#text-fields-single-line-text-field)"
+    Single-line text fields，当输入光标到达输入框右边缘时，文本框的内容会自动滚动到左边。
 
-To make your `EditText` single line add `android:inputType` attribute and set it's value to `text`.
+要让你的 `EditText` 为单行，需要添加 `android:singleLine` 属性，并且设置其值为 `true` 。
 
 ```xml
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:inputType="text"
-    android:hint="Hint text"/>
+    android:singleLine="true"
+    android:hint="Hint text" />
 ```
 
-## Multi-line text field
+### Multi-line text field
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/text-fields.html)."
-    Multi-line text fields automatically break to a new line for overflow text and scroll vertically when the cursor reaches the lower edge.
+!!! quote "摘自 google material design [文档](https://www.google.com/design/spec/components/text-fields.html#text-fields-multi-line-text-field)"
+    Multi-line text fields，当光标达到输入框边缘时，文本框会为溢出的文字自动增加一行，以使文本可以垂直滚动。
 
-To make your `EditText` multi-line add `android:inputType` attribute and set it's value to `textMultiLine`.
+要让你的 `EditText` 为多行，需要添加 `android:inputType` 属性，并且设置其值为 `textMultiLine` 。
 
 ```xml
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:inputType="textMultiLine"
-    android:hint="Hint text"/>
+    android:hint="Hint text" />
 ```
 
-## Full-width text field
+### Full-width text field
 
 ![](../images/Full-width-text-field-v2-1.png)
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/text-fields.html)."
-    Full-width text fields are useful for more in-depth tasks.
+!!! quote "摘自 google material design [文档](https://www.google.com/design/spec/components/text-fields.html#text-fields-full-width-text-field)"
+    Full-width text fields（和父布局等宽）适用于更深入复杂的工作。
 
-I. Declare custom style in your `styles.xml` file.
+I. 在你的 `styles.xml` 中声明你自定义的样式。
 
 ```xml
 <style name="FullWidthEditText" parent="Widget.AppCompat.EditText">
@@ -100,41 +99,42 @@ I. Declare custom style in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your `EditText` via `style` attribute.
+II. 在你的 `EditText` 声明里设置 `style` 属性值为你自定义的样式。
 
 ```xml
 <EditText
     style="@style/FullWidthEditText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Subject"/>
+    android:hint="Subject" />
 ```
 
 ## Floating labels
 
 ![Floating labels](../images/floating-label.png)
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/text-fields.html)."
-    When the user engages with the text input field, the floating inline labels move to float above the field.
+!!! quote "摘自  google material design [文档](https://www.google.com/design/spec/components/text-fields.html#text-fields-floating-labels)"
+    当用户在输入框输入字符时，行内的浮动标签会自动移动，浮动在输入框的上方。
 
-### How to add?
+### 如何添加？
+I. 在你的 `build.gradle` 文件里添加最新版本的 `appcompat` 和 `design` 库。
 
-I. In your `build.gradle` add latest `appcompat` and `design` libraries.
-
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
     compile 'com.android.support:design:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+
+II. 让你的 activity 继承 `android.support.v7.app.AppCompatActivity` 。
 
 ```java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `EditText` inside any `layout.xml` file and wrap it with `TextInputLayout`.
+
+III. 在任意的 `layout.xml` 里声明你的 `EditText` ，并用 `TextInputLayout` 包裹。
 
 ```xml
 <android.support.design.widget.TextInputLayout
@@ -149,14 +149,14 @@ III. Declare your `EditText` inside any `layout.xml` file and wrap it with `Text
 </android.support.design.widget.TextInputLayout>
 ```
 
-!!! note
-    Both widgets `TextInputLayout` and `EditText` have `android:hint` attribute, you can use any of them. If your app supports landscape mode, replace `EditText` with `TextInputEditText` in order for the hint to display correctly.
+!!! note "备注"
+    控件 `TextInputLayout` 和 `EditText` 都具有 `android:hint` 属性，你可以使用它们中的任意一个。
 
-### How to style?
+### 如何设置样式？
 
-![Floating labels](../images/flaoting-label-styles.png)
+![](../images/flaoting-label-styles.png)
 
-I. Declare custom styles in your `styles.xml` file.
+I. 在你的 `styles.xml` 里声明你自定义的样式。
 
 ```xml
 <!--Floating label text style-->
@@ -171,7 +171,7 @@ I. Declare custom styles in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this styles to your `TextInputLayout` via `app:hintTextAppearance` attribute and to `EditText` via `android:theme` attribute.
+II. 设置上面定义的样式给你的 `TextInputLayout` 的 `app:hintTextAppearance` 属性 和 `EditText` 的 `android:theme` 属性。
 
 ```xml
 <android.support.design.widget.TextInputLayout
@@ -190,29 +190,30 @@ II. Apply this styles to your `TextInputLayout` via `app:hintTextAppearance` att
 
 ## User input errors
 
-![User input errors](../content/images/2015/11/error-label-1.png)
+![User input errors](../images/error-label-1.png)
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/text-fields.html)."
-    Help users fix input errors as soon as they are detected. Disable the submission of a form if errors are detected, and if detected only after form submission, clearly explain the error and how to fix it.
+!!! quote "摘自 google material design [文档](http://www.google.com.ua/design/spec/patterns/errors.html#errors-user-input-errors)"
+    (添加了这个属性）一旦检测到输入错误，就会帮助用户去解决它。如果检测到输入错误，就禁止提交表单；（或者）如果提交表单之后检测到错误，可以清楚地解释错误并提示如何去解决。
 
-### How to add?
+### 如何添加？
+I. 在你的 `build.gradle` 文件里添加最新版本的 `appcompat` 和 `design` 库。
 
-I. In your `build.gradle` add latest `appcompat` and `design` libraries.
-
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
     compile 'com.android.support:design:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+
+II. 让你的 activity 继承自 `android.support.v7.app.AppCompatActivity` 。
 
 ```java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `EditText` inside any `layout.xml` file and wrap it with `TextInputLayout`.
+
+III. 在任意的 `layout.xml` 声明你的 `EditText` ，并用 `TextInputLayout` 包裹它。
 
 ```xml
 <android.support.design.widget.TextInputLayout
@@ -229,7 +230,7 @@ III. Declare your `EditText` inside any `layout.xml` file and wrap it with `Text
 </android.support.design.widget.TextInputLayout>
 ```
 
-IV. To show/hide error use `TextInputLayout#setError`.
+IV. 要展示或者隐藏 error 需要用到 `TextInputLayout` 的 `setError` 方法。
 
 ```java
 TextInputLayout inputLayout = (TextInputLayout) findViewById(R.id.inputLayout);
@@ -237,14 +238,14 @@ inputLayout.setError("First name is required"); // show error
 inputLayout.setError(null); // hide error
 ```
 
-!!! note
-    Declare `app:errorEnabled="true"` attribute inside `TextInputLayout` to reserve space for error label below `EditText`.
+!!! note "备注"
+    在 `TextInputLayout` 里声明 `app:errorEnabled="true"` 属性需要在 `EditText` 下面给错误提示标签预留空间。
 
-### How to style?
+### 如何设置样式？
 
-![User input errors](../images/error-label-styles-2-1.png)
+![](../images/error-label-styles-2-1.png)
 
-I. Declare custom styles in your `styles.xml` file.
+I. 在 `styles.xml` 声明你自定义样式。
 
 ```xml
 <!--Error label text style-->
@@ -259,13 +260,13 @@ I. Declare custom styles in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this styles to your `TextInputLayout` via `app:errorTextAppearance` attribute and to `EditText` via `android:theme` attribute.
+II. 设置上面定义的样式给你的 `TextInputLayout` 的 `app:errorTextAppearance` 属性 和 `EditText` 的 `android:theme` 属性。
 
 ```xml
 <android.support.design.widget.TextInputLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:errorTextAppearance="@style/MyErrorText"
+    app:errorTextAppearance="@style/MyHintText"
     app:errorEnabled="true">
 
     <EditText
@@ -287,7 +288,7 @@ II. Apply this styles to your `TextInputLayout` via `app:errorTextAppearance` at
 ### How to add?
 I. In your `build.gradle` add latest `appcompat` and `design` libraries.
 ```
-dependencies {  
+dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
     compile 'com.android.support:design:X.X.X' // where X.X.X version
 }
@@ -426,3 +427,7 @@ To change the password toggle icon, use the `app:passwordToggleDrawable` attribu
 ```
 
 Use a [StateListDrawable](https://developer.android.com/reference/android/graphics/drawable/StateListDrawable.html) with the `android:state_checked` attribute to use separate drawables for each toggle state. Moreover, choose an [AnimatedStateListDrawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedStateListDrawable.html) to animate the drawables between states.
+
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文作者: Volodymyr Yatsykiv
+    原文链接: [Text Fields](https://materialdoc.com/components/text-fields/)

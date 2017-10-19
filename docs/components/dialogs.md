@@ -4,27 +4,28 @@
 
 ![](../images/dialog_alert_simple.png)
 
-!!! quote "From Google material design [documentation](https://material.io/guidelines/components/dialogs.html#dialogs-alerts)"
-    Alerts are urgent interruptions, requiring acknowledgement, that inform the user about a situation.
+!!! quote "摘自 Google material design [文档](http://www.google.com.ua/design/spec/components/dialogs.html#dialogs-alerts)"
+    Alerts 用在需要告知用户一些情况信息的时候，是一种紧急中断，需要用户确认操作。
 
-### How to add?
-I. In your `build.gradle` add latest `appcompat` library.
+### 如何添加？
 
-```
-dependencies {  
+I. 在你的 `build.gradle` 添加最新版本的 `appcompat` 库。
+
+```groovy
+dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+II. 使你的 Activity 继承自 `android.support.v7.app.AppCompatActivity` 。
 
 ```java
-public class MainActivity extends AppCompatActivity {  
+public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
 
-III. To create your dialog use  `android.support.v7.app.AlertDialog.Builder`.
+III. 用 `android.support.v7.app.AlertDialog.Builder` 创建你的 dialog 。
 
 ```java
 private void showLocationDialog() {
@@ -56,11 +57,11 @@ private void showLocationDialog() {
 }
 ```
 
-### How to style?
+### 如何设置样式
 
 ![](../images/dialog_alert_styled.png)
 
-I. Declare custom `drawable.xml` for dialog background.
+I. 给 dialog 背景声明自定义的 `drawable.xml` 。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,7 +80,7 @@ I. Declare custom `drawable.xml` for dialog background.
 </inset>
 ```
 
-II. Declare custom styles in your `styles.xml` file.
+II. 在 `styles.xml` 里声明自定义的样式。
 
 ```xml
 <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -92,50 +93,51 @@ II. Declare custom styles in your `styles.xml` file.
 </style>
 ```
 
-III. Create your dialog and use `style` as parameter in `AlertDialog.Builder`.
+III. 把上面定义的 `style` 样式作为参数传入 `AlertDialog.Builder` 来创建 dialog 。
 
 ```java
-AlertDialog.Builder builder = 
-        new AlertDialog.Builder(this, R.style.MyDialogTheme);
+AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyDialogTheme);
 ...
 AlertDialog dialog = builder.create();
 // display dialog
 dialog.show();
 ```
 
-!!! note 
-        You can also style dialog in your activity theme via `alertDialogTheme` attribute.
+!!! note "备注"
+    你同样可以在你的 activity theme 里通过 `alertDialogTheme` 属性设置 dialog 的样式。
 
 ## Confirmation Dialogs
 
 ![](../images/dialog_confirmation_small.png)
 
-!!! quote "From Google material design [documentation](https://material.io/guidelines/components/dialogs.html#dialogs-confirmation-dialogs)"
-    Confirmation dialogs require users to explicitly confirm their choice before an option is committed. For example, users can listen to multiple ringtones but only make a final selection upon touching “OK.”
-    Tapping “Cancel” in a confirmation dialog, or pressing “Back,” cancels the action, discards any changes, and closes the dialog.
+!!! quote "摘自 Google material design [文档](http://www.google.com.ua/design/spec/components/dialogs.html#dialogs-confirmation-dialogs)"
+    确认 dialogs 需要用户在提交之前明确的确认他们选择的选项。例如，用户可以试听多个铃声，但是只有点击 “确定” 才是最终选择。
+    
+    在确认 dialogs 中点击 “取消” 或者按下返回键会取消一个动作，丢弃任何改动和关闭 dialogs 。
 
-## How to add?
+### 如何添加?
 
-I. In your `build.gradle` add latest `appcompat` library.
+I. 在你的 `build.grade` 文件里添加最新版本的 `appcompat` 库。
 
-```
-dependencies {  
+```groovy
+dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+II.使你的 activity 继承自 `android.support.v7.app.AppCompatActivity`.
 
 ```java
-public class MainActivity extends AppCompatActivity {  
+public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
 
-III. To create dialog use  `android.support.v7.app.AlertDialog.Builder`.
+III. 使用 `android.support.v7.app.AlertDialog.Builder` 创建 dialogs 。
 
-#### Single choice dialog
-To create dialog with single choice list use method `setSingleChoiceItems` in your `builder` object.
+#### 单选 dialogs
+
+在你的 `builder` 对象上使用 `setSingleChoiceItems` 方法创建一个单选列表 dialogs 。
 
 ```java
 public void showDialog() {
@@ -162,7 +164,7 @@ public void showDialog() {
     });
 
     String negativeText = getString(android.R.string.cancel);
-    builder.setNegativeButton(negativeText, 
+    builder.setNegativeButton(negativeText,
             new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
@@ -176,11 +178,11 @@ public void showDialog() {
 }
 ```
 
-#### Multiple choice dialog
-To create dialog with multiple choice list use method `setMultiChoiceItems` in your `builder` object.
+#### 多选 dialogs
+
+在你的 `builder` 对象上使用 `setMultiChoiceItems ` 方法创建一个多选列表 dialogs 。
 
 ```java
-...
 builder.setMultiChoiceItems(items, selectedItemsArray,
         new DialogInterface.OnMultiChoiceClickListener() {
     @Override
@@ -188,14 +190,13 @@ builder.setMultiChoiceItems(items, selectedItemsArray,
         //item checked logic
     }
 });
-...
 ```
 
-## How to style
+### 如何设置样式？
 
 ![](../images/dialog_confirmation_styled_small.png)
 
-I. Declare custom `drawable.xml` for dialog background.
+I. 声明自定义的 dialogs 背景 `drawable.xml`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -214,9 +215,9 @@ I. Declare custom `drawable.xml` for dialog background.
 </inset>
 ```
 
-II. Declare custom styles in your `styles.xml` file.
+II. 在你的 `styles.xml` 文件里声明自定义样式。
 
-```java
+```xml
 <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
     <!--item RadioButton or CheckBox color-->
     <item name="colorControlNormal">@android:color/white</item>
@@ -232,17 +233,17 @@ II. Declare custom styles in your `styles.xml` file.
 </style>
 ```
 
-III. Create your dialog and use style as parameter in `AlertDialog.Builder`.
+III. 使用样式作为 `AlertDialog.Builder` 的参数来创建你的 dialogs 。
 
 ```java
-AlertDialog.Builder builder = 
+AlertDialog.Builder builder =
         new AlertDialog.Builder(this, R.style.MyDialogTheme);
 ...
-AlertDialog dialog = builder.create();  
+AlertDialog dialog = builder.create();
 // display dialog
 dialog.show();
 ```
 
-
-
-
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文作者：Volodymyr Yatsykiv
+    原文地址：[Dialogs](https://materialdoc.com/components/dialogs)

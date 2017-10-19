@@ -4,30 +4,30 @@
 
 ![](../images/check-box-intro-v1.png)
 
-!!! quote "From google material design [documentation](https://material.io/guidelines/components/selection-controls.html#selection-controls-checkbox)."
-    Checkboxes allow the user to select multiple options from a set.
+!!! quote "摘自 google material design [文档](https://www.google.com/design/spec/components/selection-controls.html#)"
+    Checkboxes允许用户从一组选项中选择多个选项。
+    如果你有多个选项出现在列表中,你可以通过使用 Checkboxes 代替 on/off Switches 来节省空间。
+    如果你只有一个选项，避免使用一个 Checkbox，但是可以使用一个 on/off switch。
 
-    If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches.
+### 如何添加?
 
-    If you have a single option, avoid using a checkbox and use an on/off switch instead.
+I. 在你的 `build.grade` 文件末尾添加 `appcompat` 库。
 
-### How to add?
-
-I. In your `build.gradle` add latest `appcompat` library.
-
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+
+II. 让你的 Activity 继承自 `android.support.v7.app.AppCompatActivity`。
 
 ```java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `CheckBox` inside any `layout.xml` file
+
+III. 在 `layout.xml` 文件内任一位置声明你的 `CheckBox`
 
 ```xml
 <CheckBox
@@ -37,11 +37,11 @@ III. Declare your `CheckBox` inside any `layout.xml` file
     android:text="Check Box"/>
 ```
 
-### How to style?
+### 如何设置样式?
 
-![](../images/check-box-style-v1.png)
+![check box style v1](../images/check-box-style-v1.png)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在 `styles.xml` 文件内声明你的自定义样式.
 
 ```xml
 <style name="MyCheckBox" parent="Theme.AppCompat.Light">
@@ -50,7 +50,7 @@ I. Declare custom style in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your `CheckBox` via `android:theme` attribute.
+II. 将这个样式通过 `android:theme` 属性应用到你的 `CheckBox`.
 
 ```xml
 <CheckBox
@@ -65,28 +65,29 @@ II. Apply this style to your `CheckBox` via `android:theme` attribute.
 
 ![](../images/radio-button-intro-v1.png)
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button)."
-    Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side.
+!!! quote "摘自 google material design [文档](https://www.google.com/design/spec/components/selection-controls.html#selection-controls-radio-button)"
+    Radio buttons 允许用户从一组选项中选择一个选项。如果你觉得用户需要并排看到所有可选项，并用 radio buttons 从中选择唯一的一个选项。
+    那么，可以考虑用一个下拉菜单，相对于显示所有选项会占用更少的空间。
 
-    Otherwise, consider a dropdown, which uses less space than displaying all options.
+### 如何添加?
 
-### How to add?
+I. 在你的 `build.grade` 文件末尾添加 `appcompat`库.
 
-I. In your `build.gradle` add latest `appcompat` library.
-
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+
+II. 让你的 activity 继承自 `android.support.v7.app.AppCompatActivity`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `RadioButton` inside any `layout.xml` file
+
+III. 在 `layout.xml` 文件内任意位置声明你的 `RadioButton`
 
 ```xml
 <RadioButton
@@ -96,11 +97,11 @@ III. Declare your `RadioButton` inside any `layout.xml` file
     android:text="Radio Button"/>
 ```
 
-### How to style?
+### 如何设置样式?
 
-![](../images/radio-button-style-v1.png)
+![radio-button-style-v1](../images/radio-button-style-v1.png)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在 `styles.xml` 文件内声明你的自定义样式.
 
 ```xml
 <style name="MyRadioButton" parent="Theme.AppCompat.Light">
@@ -109,7 +110,7 @@ I. Declare custom style in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your `RadioButton` via `android:theme` attribute.
+II. 通过 `android:theme` 属性将这个样式应用到你的 `RadioButton` .
 
 ```xml
 <RadioButton
@@ -124,44 +125,45 @@ II. Apply this style to your `RadioButton` via `android:theme` attribute.
 
 ![](../images/switch-intro-v1.png)
 
-!!! note "From google material design [documentation](https://material.io/guidelines/components/selection-controls.html#selection-controls-switch)."
-    On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label. Switches take on the same visual properties of the radio button.
+!!! quote "摘自 google material design [文档](https://www.google.com/design/spec/components/selection-controls.html#selection-controls-switch)"
+    On/off Switches 切换可以设置单选状态。开关控制的选项，以及它所处的状态，应该通过与它对应一致的内部标签明确地展示出来，以达到与 radio button（单选按钮）相同的视觉效果。
+    on/off 滑动开关用文字标示 “on” 和 “off” 的做法已被弃用。请用文首所示图例来代替。
 
-    The on/off slide toggle with the text “on” and “off” included within the asset is deprecated. Use the switch shown here instead.
 
-### How to add?
+### 如何添加?
 
-I. In your `build.gradle` add latest `appcompat` library.
+I. 在你的 `build.grade` 文件末尾添加 `appcompat` 库。
 
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+
+II. 让你的 `activity` 继承自 `android.support.v7.app.AppCompatActivity`。
 
 ```java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `SwitchCompat` inside any `layout.xml` file
+
+III. 在任意的 `layout.xml` 文件内声明你的 `SwitchCompat` 。
 
 ```xml
 <android.support.v7.widget.SwitchCompat
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:checked="true"/>
+    android:checked="true" />
 ```
 
-!!! note
-    `android.support.v7.widget.SwitchCompat` is a backward compatible version of the Switch widget.
+> SwitchCompat 是 Switch 控件的向下兼容版本。
 
-### How to style?
+### 如何设置样式?
 
 ![](../images/switch-style-v1.png)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在你的 `styles.xml` 文件内声明自定义样式。
 
 ```xml
 <style name="MySwitch" parent="Theme.AppCompat.Light">
@@ -176,15 +178,19 @@ I. Declare custom style in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your `SwitchCompat` via `android:theme` attribute.
+II. 在你的 `SwitchCompat` 声明里设置 `android:theme` 的属性值为你自定义的样式。
 
 ```xml
 <android.support.v7.widget.SwitchCompat
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:checked="true"
-    android:theme="@style/MySwitch"/>
+    android:theme="@style/MySwitch" />
 ```
 
-!!! note
-    Android automatically add 30% transparency to `colorControlActivated` and `android:colorForeground` for `SwitchCompat`.
+!!! note "备注"
+    Android 会自动给 `SwitchCompat` 的 `colorControlActivated` 和 `android:colorForeground` 增加 30% 的透明度。
+
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文作者：Dmytro Danylyk
+    原文链接：[Selection Controls](https://materialdoc.com/components/selection-controls/)

@@ -4,26 +4,28 @@
 
 ![](../images/raised-button-intro-v2.png)
 
-!!! quote "From google material design [documentation](https://material.io/guidelines/components/buttons.html#buttons-raised-buttons)."
-          A typically rectangular material button that lifts and displays ink reactions on press.
+!!! quote "摘自 google material design [文档](https://material.io/guidelines/components/buttons.html#buttons-raised-buttons)."
+    一个典型的矩形 material 按钮在手指抬起和按下的时候会展现墨水在纸上散开的效果。
 
-### How to add?
+### 如何添加?
 
-I. In your `build.gradle` add latest `appcompat` library.
+I. 在你的 `build.gradle` 文件末尾添加 `appcompat` 库.
 
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+
+II. 创建你的 activity 并继承自 `android.support.v7.app.AppCompatActivity`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `Button` inside any `layout.xml` file
+
+III. 在 `layout.xml` 内的任意位置声明你的 `Button`
 
 ```xml
 <Button
@@ -32,20 +34,20 @@ III. Declare your `Button` inside any `layout.xml` file
     android:text="Button"/>
 ```
 
-### How to style?
+### 如何设置样式?
 
-![](../images/raised-button-style-v2.png)
+![raised-button-style-v2](https://www.materialdoc.com/images/raised-button-style-v2.png)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在你的 `styles.xml` 内定义自定义样式。
 
-```xml
+```
 <style name="MyButton" parent="Theme.AppCompat.Light">
     <item name="colorControlHighlight">@color/indigo</item>
     <item name="colorButtonNormal">@color/pink</item>
 </style>
 ```
 
-II. Apply this style to your `Button` via `android:theme` attribute.
+II. 通过 `android:theme` 属性应用这个样式到你的 `Button` 。
 
 ```xml
 <Button
@@ -55,38 +57,39 @@ II. Apply this style to your `Button` via `android:theme` attribute.
     android:theme="@style/MyButton"/>
 ```
 
-### Compatibility issues
+### 兼容性问题
 
-!!! note
-    To change `Button` color of pressed state you can use `colorControlHighlight` theme attribute, however it will only affect Lollipop version.
+I. 切换 `Button` 按下状态的颜色你可以使用主题的 `colorControlHighlight` 属性，虽然它仅仅影响 Lollipop 版本的系统。
 
-!!! note
-    Android `elevation` attribute is only available on Lollipop devices therefore you will not see shadow around `Button` on pre Lollipop devices.
+II. Android `elevation` 只在 Lollipop 设备上有效，因此你在
+Lollipop 之前的设备上将看不到 `Button` 周围的阴影。
 
 ## Flat Button
 
 ![](../images/flat-button-intro-v2.png)
 
-!!! quote "From google material design [documentation](https://material.io/guidelines/components/buttons.html#buttons-flat-buttons)."
-    A button made of ink that displays ink reactions on press but does not lift.
+!!! quote "摘自 google material design [文档](http://www.google.com.ua/design/spec/components/buttons.html#buttons-flat-raised-buttons)"
+    一个在按下的时候会展现墨水散开的效果但没有凸起效果由墨水形成的按钮。
 
-### How to add?
+### 如何添加?
 
-I. In your `build.gradle` add latest `appcompat` library.
+I. 在你的 `build.grade` 文件末尾添加 `appcompat` 库.
 
 ```
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+
+II. 创建你的 activity 并继承自 `android.support.v7.app.AppCompatActivity`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-III. Declare your `Button` inside any `layout.xml` file with `Borderless` style.
+
+III. 在 `layout.xml` 内的任意位置声明你的 `Button` 并设置  `Borderless` 样式.
 
 ```xml
 <Button
@@ -96,11 +99,11 @@ III. Declare your `Button` inside any `layout.xml` file with `Borderless` style.
     style="@style/Widget.AppCompat.Button.Borderless"/>
 ```
 
-### How to style?
+### 如何设置样式?
 
 ![](../images/flat-button-style-v2.png)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在你的 `styles.xml` 内定义自定义样式。
 
 ```xml
 <style name="MyButton" parent="Theme.AppCompat.Light">
@@ -108,7 +111,7 @@ I. Declare custom style in your `styles.xml` file.
 </style>
 ```
 
-III. Apply this style to your `Button` via `android:theme` attribute.
+III. 通过 `android:theme` 属性应用这个样式到你的 `Button`。
 
 ```xml
 <Button
@@ -118,3 +121,7 @@ III. Apply this style to your `Button` via `android:theme` attribute.
     android:theme="@style/MyButton"
     style="@style/Widget.AppCompat.Button.Borderless"/>
 ```
+
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文作者:Dmytro Danylyk
+    原文链接: [Buttons](https://materialdoc.com/components/buttons/)

@@ -14,7 +14,7 @@ Later we will prepare tutorials of how to make widgets which are not available i
 
 * `design library` - provides various material design components which are not part of Android SDK.
 
-### Who are the authors?
+### 作者是谁?
 
 * [Dmytro Danylyk](http://www.dmytrodanylyk.com/)
 * [Yakiv Mospan](http://www.yakivmospan.com/)
@@ -29,8 +29,14 @@ Later we will prepare tutorials of how to make widgets which are not available i
 * [Paresh Mayani](http://www.technotalkative.com/)
 * [Gonzalo Toledano](http://gnzlt.com)
 
-### Want to help?
+### 译者是谁?
+
+* [脉脉不得语](http://www.inferjay.com)
+* [Ailurus](http://www.easydone.cn)
+* [Goodev](http://blog.chengyunfeng.com/)
+
+### 需要你的帮助?
 
 * Share this website to social media
-* Star our repository [github.com/materialdoc](https://github.com/materialdoc/materialdoc-web)
-* Write or edit article and send pull request to `master` branch. *(Make sure you have read [how to contribute](/how-to-contribute) section)*
+* Star our repository [github.com/materialdoccn](https://github.com/materialdoccn/materialdoc-web)
+* Write or edit article and send pull request to `master` branch. *(Make sure you have read [how to contribute](docs/how-to-contribute.md) section)*

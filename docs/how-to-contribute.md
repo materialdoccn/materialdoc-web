@@ -4,9 +4,9 @@
 * If you want to write a new article.
 
     * Create `article-name.md` file based on [article-template](/article-template).
-    * Put this file inside [/docs/components](https://github.com/materialdoc/materialdoc-web/tree/master/docs/components) or [/docs/patterns](https://github.com/materialdoc/materialdoc-web/tree/master/docs/patterns) folder.
-    * Put images inside [/docs/images/](https://github.com/materialdoc/materialdoc-web/tree/master/docs/images) folder.
-    * Add article reference to [mkdocs.ymld](https://github.com/materialdoc/materialdoc-web/blob/master/mkdocs.yml) file.
+    * Put this file inside [/docs/components](https://github.com/materialdoccn/materialdoc-web/tree/master/docs/components) or [/docs/patterns](https://github.com/materialdoccn/materialdoc-web/tree/master/docs/patterns) folder.
+    * Put images inside [/docs/images/](https://github.com/materialdoccn/materialdoc-web/tree/master/docs/images) folder.
+    * Add article reference to [mkdocs.ymld](https://github.com/materialdoccn/materialdoc-web/blob/master/mkdocs.yml) file.
     * When ready send pull request to `master` branch.
 
 ### Preview

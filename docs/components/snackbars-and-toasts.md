@@ -4,14 +4,15 @@
 
 ![](../images/snack-bar-1.png)
 
-!!! quote "From google material design [documentation](https://material.io/guidelines/components/snackbars-toasts.html)."
-    Snackbars provide lightweight feedback about an operation by showing a brief message at the bottom of the screen. Snackbars can contain an action.
+!!! quote "摘自 google material design [文档](http://www.google.com.ua/design/spec/components/snackbars-toasts.html#)"
+    Snackbars 通过在屏幕底部显示一个简短的信息，提供了关于一个操作的轻量反馈。
 
-### How to add?
 
-I. In your `build.gradle` add latest `design` library.
+### 如何添加?
 
-```
+I. 在你的 `build.grade` 文件末尾添加最新的 `design` 库。
+
+```groovy
 dependencies {
     // optionally, Snackbar can be used in pair
     // with CoordinatorLayout
@@ -21,7 +22,7 @@ dependencies {
 }
 ```
 
-II. Create `Snackbar` instance with `make()` method. Then call `show()` method.
+II. 用 `make()` 方法创建一个 `Snackbar` 实例，然后调用 `show()` 方法。
 
 ```java
 Snackbar
@@ -29,28 +30,28 @@ Snackbar
     .show();
 ```
 
-Parameter `view` is used to find parent. Snackbar will be displayed over it.
+参数 `view` 被用来查找父视图。Snackbar 将被显示在它的上面。
 
-!!! note
-    Snackbar will try and find a parent `view` to hold Snackbar's view from the value given to view. Snackbar will walk up the view tree trying to find a suitable parent, which is defined as a `CoordinatorLayout` or the window decor's content view, whichever comes first.
+!!! note "备注"
+    Snackbar 将尝试并找到一个父视图去控制 Snackbar's 视图。Snackbar 将沿着视图树去尝试找到一个合适的父视图，它被定义为一个 `CoordinatorLayout` 或者窗口的 decor's 内容视图，以先找到的为准。
 
 #### Duration
 
-To specify how long `Snackbar` will be visible on screen use `setDuration` method.
+指定 `Snackbar` 在屏幕上显示多长时间使用 `setDuration` 方法。
 
 ```java
-// pre defined constants
+// 预定义的持续时间常量
 Snackbar.LENGTH_SHORT // 1500 millis
 Snackbar.LENGTH_LONG // 2750 millis
 Snackbar.LENGTH_INDEFINITE
 
-// you can set custom duration
+// 你可设置自己定义的持续时间
 snackbar.setDuration(TimeUnit.MINUTES.toMillis(1));
 ```
 
 #### Dismiss
 
-To hide `Snackbar` manually at any time use `dismiss()` method.
+使用 `dismiss()` 方法可以在任何时候 dismiss 掉 `Snackbar` 。
 
 ```java
 Snackbar snackBar = Snackbar.make(view, text, duration);
@@ -59,7 +60,7 @@ snackBar.dismiss(); //hide snackbar
 
 #### Events
 
-To track whenever `Snackbar` was shown or dismissed use `setCallback` method.
+每当 `Snackbar` 被显示或者隐藏的时候可以使用 `setCallback` 方法来追踪。
 
 ```java
 Snackbar
@@ -76,16 +77,16 @@ Snackbar
   })
 ```
 
-Parameter `event` from `onDismissed()` is one of predefined constants in [Snackbar.Callback](https://developer.android.com/reference/android/support/design/widget/Snackbar.Callback.html).
+参数 `event` 来自于 `onDismissed()`，是 [Snackbar.Callback](https://developer.android.google.cn/reference/android/support/design/widget/Snackbar.Callback.html) 内预定义的常量之一。
 
 #### Actions
 
 ![](../images/snack-bar-2.png)
 
-Snackbar can contain an action. To add it call `setAction()` method.
+Snackbar 可以包含一个 action 。通过调用 `setAction()` 方法添加它。
 
 ```java
-Snackbar  
+Snackbar
  .make(...)
  .setAction("Retry", new View.OnClickListener() {
              @Override
@@ -95,9 +96,9 @@ Snackbar
            })
 ```
 
-To enable swipe-to-dismiss and automatically moving of widgets like [FloatingActionButton](https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html) use [CoordinatorLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) as your root layout.
+要开启滑动 dismiss 和自动的移动像 [FloatingActionButton](https://developer.android.google.cn/reference/android/support/design/widget/FloatingActionButton.html) 这样的组件需要使用 [CoordinatorLayout](https://developer.android.google.cn/reference/android/support/design/widget/CoordinatorLayout.html) 作为根布局。
 
-```xml
+```java
 <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -112,13 +113,13 @@ To enable swipe-to-dismiss and automatically moving of widgets like [FloatingAct
 </android.support.design.widget.CoordinatorLayout>
 ```
 
-### How to style?
+## 如何设置样式?
 
 ![](../images/snack-bar-3.png)
 
-#### With theme
+#### 通过主题
 
-I. Declare custom style in your values/styles.xml file.
+I. 在你的 `values/styles.xml` 文件内定义自定义样式。
 
 ```xml
 <style name="SnackbarTheme" parent="Theme.AppCompat.Light">
@@ -127,46 +128,46 @@ I. Declare custom style in your values/styles.xml file.
 </style>
 ```
 
-II. Apply this style to your `Activity` via `android:theme` attribute in `AndroidManifest.xml` file.
+II. 在 `AndroidManifest.xml` 中通过`android:theme` 属性应用这个样式到你的 `Activity`。
 
-```xml
+```java
 <activity
     android:name=".SnackbarActivity"
-    android:theme="@style/SnackbarTheme">
+    android:theme="@style/AppTheme">
 </activity>
 ```
 
-!!! note
-    Applying theme to `Activity` will apply `colorAccent` and `android:textColor` to all of its views.
+!!! note "备注"
+    应用主题到 `Activity` 将会应用 `colorAccent` 和 `android:textColor` 到它内部的所有 view。
 
-#### With code
+#### 通过代码
 
-Get `Snackbar` view using `getView()` method and change it properties.
+使用 `getView()` 方法获取 `Snackbar` 视图并改变它的属性。
 
 ```java
-// create instance
+// 创建实例
 Snackbar snackbar = Snackbar.make(view, text, duration);
 
-// set action button color
+// 设置动作按钮颜色
 snackbar.setActionTextColor(getResources().getColor(R.color.indigo));
 
-// get snackbar view
+// 获取 snackbar 视图
 View snackbarView = snackbar.getView();
 
-// change snackbar text color
+// 改变 snackbar 文本颜色
 int snackbarTextId = android.support.design.R.id.snackbar_text;
 TextView textView = (TextView)snackbarView.findViewById(snackbarTextId);
 textView.setTextColor(getResources().getColor(R.color.indigo));
 
-// change snackbar background
+// 改变 snackbar 背景
 snackbarView.setBackgroundColor(Color.MAGENTA);
 ```
 
-#### With custom view
+#### 通过自定义 view
 
 ![](../images/snack-bar-4.png)
 
-I. Declare custom layout in your values/layout folder.
+I. 在你的 values/layout 文件夹里添加一个自定义布局。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -179,7 +180,7 @@ I. Declare custom layout in your values/layout folder.
         android:id="@+id/snackbar_action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/design_snackbar_extra_spacing_horizontal"              
+        android:layout_marginLeft="@dimen/design_snackbar_extra_spacing_horizontal"
         android:layout_marginStart="@dimen/design_snackbar_extra_spacing_horizontal"
         android:layout_gravity="center_vertical|right|end"
         android:paddingTop="@dimen/design_snackbar_padding_vertical"
@@ -208,12 +209,11 @@ I. Declare custom layout in your values/layout folder.
 </LinearLayout>
 ```
 
-!!! note
+!!! note "备注"
     Use `@dimen/design_snackbar` values to match material design guidelines.
-
     Use `?attr/colorAccent` to apply your Application Theme changes to `Snackbar`.
 
-II. Extend [BaseTransientBottomBar](https://developer.android.com/reference/android/support/design/widget/BaseTransientBottomBar.html) class.
+II. 继承自 [BaseTransientBottomBar](https://developer.android.google.cn/reference/android/support/design/widget/BaseTransientBottomBar.html) 类.
 
 ```java
 public class CustomSnackbar extends BaseTransientBottomBar<CustomSnackbar> {
@@ -225,21 +225,21 @@ public class CustomSnackbar extends BaseTransientBottomBar<CustomSnackbar> {
      * @param content The content view for this transient bottom bar.
      * @param contentViewCallback The content view callback for this transient bottom bar.
      */
-    private CustomSnackbar(ViewGroup parent, View content,    
+    private CustomSnackbar(ViewGroup parent, View content,
                 ContentViewCallback contentViewCallback) {
         super(parent, content, contentViewCallback);
     }
 }
 ```
 
-III. Add [BaseTransientBottomBar.ContentViewCallback](https://developer.android.com/reference/android/support/design/widget/BaseTransientBottomBar.ContentViewCallback.html)
+III. 添加 [BaseTransientBottomBar.ContentViewCallback](https://developer.android.google.cn/reference/android/support/design/widget/BaseTransientBottomBar.ContentViewCallback.html)
 
 ```java
 public class CustomSnackbar ... {
 
   ...
 
-  private static class ContentViewCallback implements        
+  private static class ContentViewCallback implements
                        BaseTransientBottomBar.ContentViewCallback {
 
       // view inflated from custom layout
@@ -273,7 +273,7 @@ public class CustomSnackbar ... {
 }
 ```
 
-IV. Add method to create `Snackbar` with custom layout and methods to fill it.
+IV. 通过自定义布局和方法来创建 `Snackbar`
 
 ```java
 public class final CustomSnackbar ...{
@@ -301,7 +301,7 @@ public static CustomSnackbar make(ViewGroup parent, @Duration int duration) {
      return this;
  }
 
-  // set action in custom layout
+ // set action in custom layout
  public CustomSnackbar setAction(CharSequence text, final OnClickListener listener) {
      Button actionView = (Button) getView().findViewById(R.id.snackbar_action);
      actionView.setText(text);
@@ -319,7 +319,7 @@ public static CustomSnackbar make(ViewGroup parent, @Duration int duration) {
 }
 ```
 
-V. Create instance of `CustomSnackbar` and call `show()` method.
+V. 创建 `CustomSnackbar` 实例对象并调用 `show()` 方法。
 
 ```java
 CustomSnackbar customSnackbar = CustomSnackbar.make(rooView, CustomSnackbar.LENGTH_INDEFINITE);
@@ -337,12 +337,12 @@ customSnackbar.show();
 
 ![](../images/toast-1.png)
 
-!!! quote "From google material design [documentation](https://material.io/guidelines/components/snackbars-toasts.html)."
-    Android also provides a toast, primarily used for system messaging. Toasts are similar to snackbars but do not contain actions and cannot be swiped off screen.
+!!! quote "摘自 google material design [文档](http://www.google.com.ua/design/spec/components/snackbars-toasts.html#)"
+    Android 另外提供了一个 toast，主要用于系统消息。Toasts 跟 snackers 类似，但是不能包含 actions 和 不能懂屏幕滑动关闭掉。
 
-### How to add?
+### 如何添加?
 
-Create `Toast` instance with `make()` method. Then call `show()` method.
+用 make() 方法创建一个 `Toast` 实例，然后调用 show() 方法。
 
 ```java
 Toast.makeText(context, "No network connection.", duration).show();
@@ -350,7 +350,7 @@ Toast.makeText(context, "No network connection.", duration).show();
 
 #### Duration
 
-To specify how long `Toast` will be visible on screen use `duration` parameter of `makeText()` method or `setDuration` method.
+使用 `makeText()` 方法的 `duration` 参数 或者 `setDuration`  方法指定 Snackbar 在屏幕上显示多长时间。
 
 ```java
 // you can use only those 2 predefined constants
@@ -362,19 +362,19 @@ toast.setDuration(duration);
 
 #### Cancel
 
-To hide `Toast` manually at any time use `cancel()` method.
+可以在任何时候使用 `cancel()` 方法手动的去隐藏 `Toast`  。
 
 ```java
 Toast toast= Toast.make(view, text, duration).show();
 toast.cancel(); //hide toast
 ```
 
-!!! note
-    Close the view if it's showing, or don't show it if it isn't showing yet. You do not normally have to call this. Normally view will disappear on its own after the appropriate duration.
+!!! note "备注"
+    如果在它显示的时候关闭它或者在不想显示的时候它仍然显示，通常你不需要去调用这个方法。它会在持续适当的时间之后自己消失。
 
 #### Positioning
 
-To change position of `Toast` use `setGravity()` method.
+用 `setGravity()` 可以改变 `Toast` 的显示位置。
 
 ```java
 int gravity = Gravity.CENTER; // the position of toast
@@ -385,27 +385,27 @@ Toast toast= Toast.make(view, text, duration);
 toast.setGravity(gravity, xOffset, yOffset);
 ```
 
-### How to style?
+### 如何设置样式?
 
 ![](../images/toast-2.png)
 
-#### With code
+#### 用代码
 
 ```java
-// create instance
+// 创建 Toast 实例
 Toast toast = Toast.makeText(context, text, duration);
 
-// set message color
+// 设置消息颜色
 TextView textView= (TextView) toast.getView().findViewById(android.R.id.message);
 textView.setTextColor(Color.YELLOW);
 
-// set background color
+// 设置背景颜色
 toast.getView().setBackgroundColor(getResources().getColor(R.color.indigo));
 ```
 
-#### With custom view
+#### 用自定义 View
 
-I. Declare your custom view inside of any `layout.xml` file.
+I. 在 `layout.xml` 文件内的任意位置声明你的自定义 View。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -427,25 +427,29 @@ I. Declare your custom view inside of any `layout.xml` file.
         android:background="@color/indigo"/>
 ```
 
-II. Set your custom view to `Toast` via `setView()` method.
+II. 通过  `setView()` 方法设置你的自定义 View 到 `Toast` 。
 
 ```java
-// create instance
+// 创建 Toast 实例
 Toast toast = new Toast(getApplicationContext());
 
-// inflate custom view
+// 创建自定义 view
 View view = getLayoutInflater().inflate(R.layout.toast_view, null);
 
-// set custom view
+// 设置自定义 view
 toast.setView(view);
 
-// set duration
+// 设置显示持续时间
 toast.setDuration(Toast.LENGTH_LONG);
 
-// set position
+// 设置位置
 int margin = getResources().getDimensionPixelSize(R.dimen.toast_vertical_margin);
 toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_VERTICAL, 0, margin);
 
-// show toast
+// 显示 Toast
 toast.show();
 ```
+
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文作者：Yakiv Mospan
+    原文地址：[Snackbars & Toasts](https://materialdoc.com/components/snackbars-and-toasts)

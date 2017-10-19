@@ -2,22 +2,20 @@
 
 ![](../images/rating-bar-1.png)
 
-!!! quote "From google [documentation](http://developer.android.com/reference/android/widget/RatingBar.html)."
-    A RatingBar is an extension of SeekBar and ProgressBar that shows a rating in stars. The user can touch/drag or use arrow keys to set the rating when using the default size RatingBar.
+!!! quote "摘自 Google 的[文档](http://developer.android.com/reference/android/widget/RatingBar.html)"
+    RatingBar 是 SeekBar 和 ProgressBar 的一个扩展组件，可以使用星星来作为评分展示。当使用默认尺寸的 RatingBar 的时候，用户可以通过触摸/拖拽操作或者方向键设置评分。[ratingBarStyleSmall](http://developer.android.com/reference/android/R.attr.html#ratingBarStyleSmall) 和 [ratingBarStyleIndicator](http://developer.android.com/reference/android/R.attr.html#ratingBarStyleIndicator) 不支持与用户交互，只能被作为指示器来使用。
 
-    The smaller RatingBar style ([ratingBarStyleSmall](http://developer.android.com/reference/android/R.attr.html#ratingBarStyleSmall)) and the larger indicator-only style ([ratingBarStyleIndicator](http://developer.android.com/reference/android/R.attr.html#ratingBarStyleIndicator)) do not support user interaction and should only be used as indicators.
+### 如何添加？
 
-### How to add?
+I. 在你的 `build.gradle` 里添加最新版本的 `appcompat` 库。
 
-I. In your `build.gradle` add latest `appcompat` library.
-
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Make your activity extend `android.support.v7.app.AppCompatActivity`.
+II. 让你的 Activity 继承自 `android.support.v7.app.AppCompatActivity` 。
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-III. Declare your `RatingBar` inside any `layout.xml` file.
+III. 在任意的 `layout.xml` 声明 `RatingBar` 。
 
 ```xml
 <RatingBar
@@ -33,14 +31,14 @@ III. Declare your `RatingBar` inside any `layout.xml` file.
     android:stepSize="0.5"
     android:numStars="5"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content" />
 ```
 
-### How to style?
+### 如何设置样式？
 
 ![](../images/rating-bar-2.png)
 
-I. Declare custom style in your `styles.xml` file.
+I. 在 `styles.xml` 里声明自定义的样式。
 
 ```xml
 <style name="RatingBar" parent="Theme.AppCompat">
@@ -49,7 +47,7 @@ I. Declare custom style in your `styles.xml` file.
 </style>
 ```
 
-II. Apply this style to your `RatingBar` via `android:theme` attribute.
+II. 设置 `RatingBar` 的 `android:theme` 属性值为上面自定义的样式。
 
 ```xml
 <RatingBar
@@ -58,5 +56,10 @@ II. Apply this style to your `RatingBar` via `android:theme` attribute.
     android:stepSize="0.5"
     android:numStars="5"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content" />
 ```
+
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文作者: Yakiv Mospan
+    原文链接: [Rating Bar](https://materialdoc.com/components/rating-bar/)
+

@@ -2,42 +2,40 @@
 
 ![Material Style Notification](/images/notification-1.png)
 
-!!! quote
-    From Google material design [documentation](https://material.io/guidelines/patterns/notifications.html):
+!!! quote "摘自 Google material design [文档](https://material.io/guidelines/patterns/notifications.html)"
 
-    Notifications inform your app’s users about relevant and timely events in your app. You can create notifications to draw attention to messages from friends, alert a commuter to traffic slowdowns, show the progress of a new app being installed, and more.
+    在您的应用程序里，使用 Notifications 告知你的 APP 用户一些相关和及时的信息。很多场景下，你都可以创建 notifications 来吸引注意，如朋友发来信息，交通状况不好的时候提醒通勤状况，安装应用完成的时候展示一个进度条等。
 
     Notifications should be synced to all of a user’s devices.
 
-### How to add?
+### 如何添加？
 
-I. In your `build.gradle` file add the latest `appcompat` library.
+I. 在你的 `build.gradle` 文件里添加最新的 `appcompat ` 库。
 
-```
+```groovy
 dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X'
     // X.X.X specify the version
 }
 ```
 
-II. Get an instance of the `NotificationCompat.Builder`.
+II. 获取一个 `NotificationCompat.Builder` 实例。
 
 ```java
-NotificationCompat.Builder builder =
-    new NotificationCompat.Builder(context);
+NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 ```
 
-III. Create a `Notification` using `Notification.Builder`
+III. 使用 `Notification.Builder` 创建一个 `Notification` 。
 
 ```java
 Notification notification = builder
     .setContentTitle("Title")
     .setContentText("This is a notification!")
-    .setSmallIcon(R.drawable.ic_notifications_white_small)
+.setSmallIcon(R.drawable.ic_notifications_white_small)
     .build();
 ```
 
-IV. Show the `Notification` with the method `notify` of  `NotificationManagerCompat` with an id of your choice.
+IV. 使用 `NotificationManagerCompat` 的 `notify ` 方法展示你设置了 id 的那个 `Notification` 。
 
 ```java
 NotificationManagerCompat notificationManager =
@@ -46,15 +44,14 @@ NotificationManagerCompat notificationManager =
 notificationManager.notify(0x1234, notification);
 ```
 
-!!! note
-    Title, text and small icon are mandatory in order to show the notification.
+!!! note "备注"
+    为了显示通知，标题、文字、小图标是强制性必须要设置的。
 
-
-### How to style?
+### 如何设置样式?
 
 ![](/images/notification-2.png)
 
-Use the method `setColor(int color)` of `NotificationCompat.Builder` to set the color of the round background  your notification.
+在你的 notification 里使用 `NotificationCompat.Builder` 的 `setColor(int color)` 方法给圆形背景设置颜色。
 
 ```java
 Notification notification =
@@ -66,11 +63,11 @@ Notification notification =
         .build();
 ```
 
-## Notifications with images
+## 包含图片的通知
 
 ![Face styled notification](/images/notification-3.png)
 
-Use the method `setLargeIcon(Bitmap)` of  `NotificationCompat.Builder` to use a big image next to the small icon.
+使用 `NotificationCompat.Builder` 的 `setLargeIcon(Bitmap)` 方法给通知的设置小图标旁边的大图标。
 
 ```java
 Notification notification =
@@ -83,9 +80,9 @@ Notification notification =
         .build();
 ```
 
-## Vibrating notifications
+## 振动通知
 
-Use the method `setVibrate` of `NotificationCompat.Builder` to create vibrate patterns accompanying the notification.
+使用 `NotificationCompat.Builder` 的 `setVibrate` 方法设置一个带有振动模式的通知。
 
 ```java
 long[] vibratePattern = new long[] {
@@ -102,12 +99,12 @@ Notification notification =
         .build();
 ```
 
-!!! note
-    In order to use the vibration you will need to declare the `android.permission.VIBRATE` in your `AndroidManifest.xml` file.
+!!! note "备注"
+    为了能够使用振动，你需要在 `AndroidManifest.xml` 里声明 `android.permission.VIBRATE` 权限。
 
-## Notifications with lights
+## 带呼吸灯的通知
 
-Use the method `setLights(int argb, int msOn, int msOff)` of `NotificationCompat.Builder` to customize the color and the LED pattern shown by the device.
+使用 `NotificationCompat.Builder` 的 `setLights(int argb, int msOn, int msOff)` 方法定制设备要显示的呼吸灯的颜色和 LED 模式。
 
 ```java
 Notification notification =
@@ -119,18 +116,22 @@ Notification notification =
       .build();
 ```
 
-## Tips and best practices
+## 技巧和最佳实践
 
-I. Notify the user about time-sensitive information directed specifically at them.
+I. 专门针对时间敏感的用户进行通知。
 
-II. For notifications sent by another person, include that person's image.
+II. 对于另外一个人发的通知，要包含他的图片。
 
-III. When the user touches a notification, enable the user to take immediate action. This may open a detail view, such as a message, or a summary view for multiple notifications.
+III. 当用户点击一个通知的时候，允许用户直接进行操作。这可能会打一个详情视图，如一条信息，或者多个通知的摘要视图。
 
-IV. The round cut is used by default when the `setLargeIcon` is not used and `setSmallIcon` method is used. When using the `setLargeIcon` the circular image has to be done manually.
+IV. 当没有使用 `setLargeIcon` 方法，而使用了 `setSmallIcon` 方法，默认情况下，使用圆形图片。当使用了 `setLargeIcon` 方法时，要用圆形图片时则要手动设置。
 
 ![](/images/notification-4.png)
 ![](/images/notification-5.png)
+
+!!! warning
+    原文作者：[Saúl Díaz González](http://www.materialdoc.com/author/saul-diaz-gonzalez/)
+    翻译：[Ailurus](http://www.easydone.cn)
 
 ## Expanded Notifications Layouts
 

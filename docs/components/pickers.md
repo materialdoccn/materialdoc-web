@@ -4,48 +4,41 @@
 
 <img src="/images/date-picker-1.png" width="360"/>
 
-!!! quote "From the Google Material Design [documentation](https://material.io/guidelines/components/pickers.html#pickers-date-pickers)"
-    A dialog picker is used to select a single date on mobile_.
+!!! quote "摘自 Google Material Design [文档](https://www.google.com/design/spec/components/pickers.html#pickers-date-pickers)"
+    对话框选择器用来在手机上选择日期。
+    被选中的一天，用与其他日期不同的颜色和着重类型的实心圆来表示。
 
-    The selected day is indicated by a filled circle. The current day is indicated by a different color and type weight.
+### 如何添加？
 
-### How to add?
+I. 在 `build.gradle` 里添加最新的 `appcompat` 库。
 
-I. In your `build.gradle` add latest `appcompat` library.
-
-```
-dependencies {  
+```groovy
+dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Make your activity extend `android.support.v7.app.AppCompatActivity` and implement the  `DatePickerDialog.OnDateSetListener` interface.
-
-```java
+II. 让你的 Activity 继承自 `android.support.v7.app.AppCompatActivity` 并实现 `DatePickerDialog.OnDateSetListener` 接口。
+```Java
 public class MainActivity extends AppCompatActivity
     implements DatePickerDialog.OnDateSetListener {
-      ...
-    }
 ```
 
-III. Create your `DatePickerDialog` setting a context, the implementation of the listener and the start year, month and day of the date picker.
-
-```java
-DatePickerDialog datePickerDialog =
-    new DatePickerDialog(context, listener, startYear, starthMonth, startDay);
+III. 创建你的 `DatePickerDialog` ，并传入 context, listener, startYear, starthMonth, startDay 等参数。
+```Java
+DatePickerDialog datePickerDialog = new DatePickerDialog(
+    context, listener, startYear, starthMonth, startDay);
 ```
-
-IV. Show your dialog with the method `show` of `DatePickerDialog`
-
-```java
+IV. 使用 `DatePickerDialog` 的 `show` 方法展示对话框。
+```Java
 datePickerDialog.show();
 ```
 
-### How to style?
+### 如何设置样式？
 
 <img src="/images/date-picker-2.png" width="360"/>
 
-I. Declare custom `drawable.xml` for the dialog background.
+I. 为对话框背景声明自定义 `drawable.xml` 。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -64,8 +57,7 @@ I. Declare custom `drawable.xml` for the dialog background.
 </inset>
 ```
 
-II. Declare custom styles in your `styles.xml` file.
-
+II. 在 `styles.xml` 声明自定义样式。
 ```xml
 <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
     <item name="colorControlNormal">@android:color/white</item>
@@ -77,16 +69,13 @@ II. Declare custom styles in your `styles.xml` file.
 </style>
 ```
 
-III. Set your custom style as a parameter of the `DatePickerDialog`.
-
-```java
-DatePickerDialog datePickerDialog =
-    new DatePickerDialog(this, R.style.MyDialogTheme, listener, 2016, 21, 3);
+III. 设置你的自定义样式为 `DatePickerDialog` 的一个参数。
+```Java
+DatePickerDialog datePickerDialog = new DatePickerDialog(
+    this, R.style.MyDialogTheme, listener, 2016, 21, 3);
 ```
-
-IV. Show your `DatePickerDialog` with the `show` method.
-
-```java
+IV. 使用 `show` 方法展示你的 `DatePickerDialog` 。
+```Java
 datePickerDialog.show();
 ```
 
@@ -94,22 +83,21 @@ datePickerDialog.show();
 
 <img src="/images/time-picker-1.png" width="360"/>
 
-!!! note "From the Google Material Design [documentation](https://material.io/guidelines/components/pickers.html#pickers-time-pickers)"
-    A time picker adjusts to a user’s preferred time setting, i.e. the 12-hour or 24-hour format.
+!!! quote "摘自 Google Material Design [文档](https://material.io/guidelines/components/pickers.html#pickers-time-pickers)"
+    一个时间选择器根据用户的首选时间设置（即12小时或24小时格式）进行调整。
+    对话框选择器用于在移动设备上选择一次（小时：分钟）。
 
-    A dialog picker is used to select a single time (hours:minutes) on mobile.
+### 如何添加?
 
-### How to add?
-
-I. In your `build.gradle` add latest `appcompat` library.
+I. 在你的 `build.gradle` 文件里添加最新版本的 `appcompat` 库。
 
 ```
-dependencies {  
+dependencies {
     compile 'com.android.support:appcompat-v7:X.X.X' // where X.X.X version
 }
 ```
 
-II. Make your activity extend `android.support.v7.app.AppCompatActivity` and implement the  `TimePickerDialog.OnTimeSetListener` interface.
+II. 让你的 activity 继承自 `android.support.v7.app.AppCompatActivity` 并且实现  `TimePickerDialog.OnTimeSetListener` 接口。
 
 ```java
 public class MainActivity extends AppCompatActivity
@@ -118,24 +106,24 @@ public class MainActivity extends AppCompatActivity
     }
 ```
 
-III. Create your `TimePickerDialog` setting a context, the implementation of the listener, the start hour of the day, minute and a `boolean` indicating if the dialog should show a 24h. format or not.
+III. 创建你的 `TimePickerDialog` 并设置 context，监听器的实现，一天的开始时间，分钟和一个 `boolean` 值，指示对话框是否显示为 24 小时格式。
 
 ```java
 TimePickerDialog timePickerDialog =
     new TimePickerDialog(context, listener, startHour, startMinute, is24HourFormat);
 ```
 
-IV. Show your dialog with the method `show` of `TimePickerDialog`.
+IV. 通过 `TimePickerDialog` 的 `show` 方法显示你的对话框。
 
 ```java
 timePickerDialog.show();
 ```
 
-### How to style?
+### 如何设置样式?
 
 <img src="/images/time-picker-2.png" width="360"/>
 
-I. Declare custom `drawable.xml` for the dialog background.
+I. 创建对话框自定义背景文件 `drawable.xml`。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -154,7 +142,7 @@ I. Declare custom `drawable.xml` for the dialog background.
 </inset>
 ```
 
-II. Declare a custom styles in your `styles.xml` file.
+II. 在`styles.xml` 文件内添加你的自定义样式。
 
 ```xml
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -167,7 +155,7 @@ II. Declare a custom styles in your `styles.xml` file.
     </style>
 ```
 
-III. Set your custom style as a parameter of the `DatePickerDialog`.
+III. 将你的自定义作为创建 `DatePickerDialog` 时的一个参数。
 
 ```java
 TimePickerDialog timePickerDialog = new TimePickerDialog(
@@ -175,7 +163,7 @@ TimePickerDialog timePickerDialog = new TimePickerDialog(
     startHour, startMinute, is24HourFormat);
 ```
 
-IV. Show your `TimePickerDialog` with the `show` method.
+IV. 通过 `show` 方法来显示你的 `TimePickerDialog`。
 
 ```java
 timePickerDialog.show();
@@ -185,7 +173,7 @@ timePickerDialog.show();
 
 <img src="/images/time-picker-3.png" width="360"/>
 
-I. Use `R.style.Theme_AppCompat_Dialog_Alert`theme for the style parameter in the `TimePickerDialog` constructor.
+I. 使用 `R.style.Theme_AppCompat_Dialog_Alert` 主题作为`TimePickerDialog` 构造函数的样式参数。
 
 ```java
 TimePickerDialog dialog = new TimePickerDialog(
@@ -193,27 +181,27 @@ TimePickerDialog dialog = new TimePickerDialog(
     listener, startingHour, startingMinute, is24HourFormat);
 ```
 
-!!! note
-    You can use your custom style setting its parent with the `Theme.AppCompat.Light.Dialog.Alert` value
+!!! note "备注"
+    你也可以使用继承自 `Theme.AppCompat.Light.Dialog.Alert` 的自定义样式。
 
 ## Color Picker
 
 <img src="/images/color-picker-1.png" width="480"/>
 
-!!! note "From Google material design [documentation](https://www.google.com/design/spec/components/pickers.html)."
-    Pickers provide a simple way to select a single value from a pre-determined set.
+!!! note "摘自 Google material design [文档](https://www.google.com/design/spec/components/pickers.html)."
+    Pickers 提供了一种从预先确定的集合中选择单个值的简单方法。
 
-### How to add?
+### 如何提添加?
 
-I. Clone the color picker project from the [Google open source repository](https://android.googlesource.com/platform/frameworks/opt/colorpicker/).
+I. 从 [Google open source repository](https://android.googlesource.com/platform/frameworks/opt/colorpicker/) 克隆 color picker 项目。
 
 ```
 git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
 ```
 
-II. Import a new module in android studio with the **New/Import module** menu, choosing the path where the project was cloned.
+II. 选择已经克隆的项目并作为一个新模块通过 **New/Import module** 菜单导入到 Android Studio。
 
-III. Compile the new module as a dependency of your android project
+III. 将新模块编译为你项目的一个依赖。
 
 ```
 dependencies {
@@ -221,7 +209,7 @@ dependencies {
 }
 ```
 
-IV. Declare some colors in your resources file `colors.xml`
+IV. 在 `colors.xml` 资源文件中声明一些颜色。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -248,7 +236,7 @@ IV. Declare some colors in your resources file `colors.xml`
 </resources>
 ```
 
-V. Init your `ColorPickerDialog` with a title, an array of colors, the default selected color, the number of columns and the size of the shown colors.
+V. 使用标题、颜色数组、默认选择的颜色、列数和显示颜色的大小来初始化 `ColorPickerDialog`。
 
 ```java
 ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
@@ -256,17 +244,17 @@ colorPickerDialog.initialize(
     R.string.title, colors, selectedColor, numColumns, colors.length);
 ```
 
-VI. Since `ColorPickerDialog` extends from a `DialogFragment` show it with the `show` method setting it with a `FragmentManager` and a tag.
+VI. 由于 `ColorPickerDialog` 继承自 `DialogFragment` ，所以可以通过 一个 `FragmentManager` 和 一个标签显示它。
 
 ```java
 colorPickerDialog.show(getFragmentManager(), tag);
 ```
 
-### How to style?
+### 如何设置样式?
 
 <img src="/images/color-picker-2.png" width="480"/>
 
-I. Create a `ColorPickerPalette` in a layout file.
+I. 创建一个包含 `ColorPickerPalette` 的布局文件。
 
 ```xml
 <com.android.colorpicker.ColorPickerPalette
@@ -280,10 +268,10 @@ I. Create a `ColorPickerPalette` in a layout file.
     />
 ```
 
-!!! note
-    The `ColorPickerPalette` extends from the `TableLayout` class, you can use the `TableLayout` view group parameters to  style it.
+!!! note "备注"
+    `ColorPickerPalette` 继承自 `TableLayout` 类，所以你可以使用  `TableLayout` 的所有视图属性来设置自己的样式。
 
-II. Declare a dark style for the dialog which will contain the `ColorPickerPalette`.
+II. 为包含 `ColorPickerPalette` 的对话框定义一个暗色样式。
 
 ```xml
 <style name="MyDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
@@ -300,19 +288,19 @@ ColorPickerPalette colorPickerPalette =
     (ColorPickerPalette) layoutInflater.inflate(R.layout.custom_picker, null);
 ```
 
-IV. Configure the `ColorPickerPalette` with a number of colors and a listener.
+IV. 用一些颜色和一个监听器设置你的 `ColorPickerPalette`。
 
 ```java
 colorPickerPalette.init(colors.length, columns, mOnColorSelectedListener);
 ```
 
-V. Call the `colorPickerPalette` method of `ColorPickerPalette` with an array of your colors and the selected default color.
+V. 使用一个颜色数组和默认的选中颜色作为参数调用 `ColorPickerPalette` 的 `colorPickerPalette` 方法。
 
 ```java
 colorPickerPalette.drawPalette(colors, selectedColor);
 ```
 
-VI. Create your dialog via `AlertDialog.Builder` with your dark theme and your view as the content.
+VI. 用你的暗色主题和视图通过 `AlertDialog.Builder` 创建对话框。
 
 ```java
 AlertDialog alert = new AlertDialog.Builder(this, R.style.MyDialogTheme)
@@ -323,8 +311,13 @@ AlertDialog alert = new AlertDialog.Builder(this, R.style.MyDialogTheme)
     .create();
 ```
 
-VII. Show your dialog
+VII. 显示你的对话框
 
 ```java
 alert.show();
 ```
+
+!!! warning "翻译水平有限，欢迎批评指正"
+    原文地址：[Pickers](https://materialdoc.com/components/pickers/)
+    译者：[脉脉不得语](http://www.inferjay.com)
+    译者：[Ailurus](http://www.easydone.cn)
