@@ -1,15 +1,15 @@
 # Project information
-site_name: Materialdoc
+site_name: Material Desingn 开发者文档
 site_description: 'Material Components for Android'
-site_author: 'Dmytro Danylyk'
-site_url: 'https://materialdoc.com'
+site_author: '脉脉不得语'
+site_url: 'http://materialdoc.cn'
 
 # Repository
 repo_name: 'GitHub'
-repo_url: 'https://github.com/materialdoc/materialdoc-web'
+repo_url: 'https://github.com/materialdoccn/materialdoc-web'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 2018 Dmytro Danylyk'
+copyright: 'Copyright &copy; 2017 - 2018 脉脉不得语'
 
 # Documentation and theme
 theme_dir: 'material'
@@ -19,11 +19,11 @@ site_favicon: 'images/favicon.ico'
 extra:
   social:
     - type: 'github'
-      link: 'https://github.com/materialdoc'
+      link: 'https://github.com/materialdoccn'
     - type: 'twitter'
-      link: 'https://twitter.com/dmytrodanylyk'
-    - type: 'linkedin'
-      link: 'https://linkedin.com/in/dmytrodanylyk'
+      link: 'https://twitter.com/inferjay'
+    - type: 'weibo'
+      link: 'https://weibo.com/innferjay'
   feature:
     tabs: true
 
@@ -36,14 +36,14 @@ markdown_extensions:
 
 # Google Analytics
 google_analytics:
-  - 'UA-69898504-1'
+  - 'UA-71100105-1'
   - 'auto'
 
 pages:
     - Home:
-      - About: index.md
-      - Application: application.md
-      - Contribute: how-to-contribute.md
+      - 关于: index.md
+      - 应用程序: application.md
+      - 如何参与贡献: how-to-contribute.md
     - Components:
       - Auto-complete: components/autocomplete.md
       - Buttons: components/buttons.md
