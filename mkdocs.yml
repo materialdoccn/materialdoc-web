@@ -2,44 +2,131 @@
 site_name: Material Desingn 开发者文档
 site_description: 'Material Components for Android'
 site_author: '脉脉不得语'
-site_url: 'http://materialdoc.cn'
+site_url: 'https://materialdoc.cn'
 
 # Repository
 repo_name: 'GitHub'
 repo_url: 'https://github.com/materialdoccn/materialdoc-web'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 2018 脉脉不得语'
+copyright: 'Copyright &copy; 2017 - 2024 Materialdoc CN'
 
 # Documentation and theme
-theme_dir: 'material'
-site_favicon: 'images/favicon.ico'
+theme: 
+  name: 'material'
+  language: en
+  logo: images/mddoc-logo.png
+  favicon: images/favicon.ico
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: teal
+      accent: indigo
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: teal
+      accent: indigo=
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github-alt
+    edit: material/pencil 
+    view: material/eye
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+  features:
+    - header.autohide
+    - announce.dismiss
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    - content.action.edit
+    - content.action.view
+
+# Plugins
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      fallback_to_build_date: true
+  - git-committers:
+    repository: materialdoccn/materialdoc-web
+    branch: master
+  - git-authors
+  - glightbox
+  - search
+  - social
+  - typeset
+  - privacy
 
 # Options
 extra:
   social:
-    - type: 'github'
-      link: 'https://github.com/materialdoccn'
-    - type: 'twitter'
-      link: 'https://twitter.com/inferjay'
-    - type: 'weibo'
-      link: 'https://weibo.com/innferjay'
+    - icon: fontawesome/brands/github
+      link: https://github.com/materialdoccn
+      name: GitHub
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/inferjay
+      name: Twitter
+    - icon: fontawesome/brands/weibo
+      link: https://weibo.com/innferjay
+      name: Weibo
   feature:
     tabs: true
+  analytics:
+    provider: google
+    property: UA-71100105-1
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
 
 # Extensions
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - meta
   - codehilite
-  - toc(permalink=true)
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - tables
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
 
-# Google Analytics
-google_analytics:
-  - 'UA-71100105-1'
-  - 'auto'
-
-pages:
+nav:
     - Home:
       - 关于: index.md
       - 应用程序: application.md

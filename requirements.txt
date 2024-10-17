@@ -1,3 +1,5 @@
 mkdocs
 pymdown-extensions
 pygments
+mkdocs-git-revision-date-localized-plugin
+mkdocs-git-committers-plugin-2
