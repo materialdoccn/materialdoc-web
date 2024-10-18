@@ -36,7 +36,7 @@ III. 在 `layout.xml` 内的任意位置声明你的 `Button`
 
 ### 如何设置样式?
 
-![raised-button-style-v2](https://www.materialdoc.com/images/raised-button-style-v2.png)
+![raised-button-style-v2](https://materialdoc.cn/images/raised-button-style-v2.png)
 
 I. 在你的 `styles.xml` 内定义自定义样式。
 

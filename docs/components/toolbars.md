@@ -210,6 +210,6 @@ II. 通过 `style` 属性应用这个样式到你的 `Toolbar`。
 
 !!! warning "翻译水平有限，欢迎批评指正"
     原文作者：Saúl Molinero
-    原文地址：[Toolbars](http://www.materialdoc.com/components/toolbars/)
+    原文地址：[Toolbars](http://materialdoc.cn/components/toolbars/)
     译者：[脉脉不得语](http://wwww.inferjay.com)
     校对：[Ailurus](http://www.easydone.cn)

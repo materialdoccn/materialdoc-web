@@ -69,7 +69,6 @@ plugins:
   - git-authors
   - glightbox
   - search
-  - social
   - privacy
 
 # Options

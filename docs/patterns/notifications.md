@@ -130,7 +130,7 @@ IV. 当没有使用 `setLargeIcon` 方法，而使用了 `setSmallIcon` 方法�
 ![](/images/notification-5.png)
 
 !!! warning
-    原文作者：[Saúl Díaz González](http://www.materialdoc.com/author/saul-diaz-gonzalez/)
+    原文作者：[Saúl Díaz González](http://materialdoc.cn/author/saul-diaz-gonzalez/)
     翻译：[Ailurus](http://www.easydone.cn)
 
 ## Expanded Notifications Layouts
@@ -268,7 +268,7 @@ NotificationCompat.BigPictureStyle style
 ```
 
 !!! note
-    Check how `NotificationCompat.Builder` are managed on the [basic notifications](http://www.materialdoc.com/notifications/) article.
+    Check how `NotificationCompat.Builder` are managed on the [basic notifications](http://materialdoc.cn/notifications/) article.
 
 II. Add the image you want to display by using `BigPictureStyle.bigPicture` method. The format of the image must be a `Bitmap`.
 
