@@ -70,7 +70,6 @@ plugins:
   - glightbox
   - search
   - social
-  - typeset
   - privacy
 
 # Options
