@@ -59,7 +59,9 @@
       <link rel="stylesheet" href="{{ path }}">
     {% endfor %}
     {% block extrahead %}
+      
     {% endblock %}
+    <meta name="google-adsense-account" content="{{google_adsense.client}}">
   </head>
   {% set palette = config.extra.get("palette", {}) %}
   {% set primary = palette.primary | replace(" ", "-") | lower %}

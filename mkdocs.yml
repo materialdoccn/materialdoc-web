@@ -17,6 +17,7 @@ theme:
   language: en
   logo: images/mddoc-logo.png
   favicon: images/favicon.ico
+  custom_dir: 'overrides'
   palette:
     - scheme: default
       toggle:
